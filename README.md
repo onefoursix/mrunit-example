@@ -68,7 +68,6 @@ You should see output like this:
 	[INFO] Deleting /Users/mbrooks/github-repos/mrunit-example/target
 	[INFO] 
 	[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ mrunit-example ---
-	[debug] execute contextualize
 	[INFO] Using 'UTF-8' encoding to copy filtered resources.
 	[INFO] skip non existing resourceDirectory /Users/mbrooks/github-repos/mrunit-example/src/main/resources
 	[INFO] 
@@ -76,7 +75,6 @@ You should see output like this:
 	[INFO] Compiling 3 source files to /Users/mbrooks/github-repos/mrunit-example/target/classes
 	[INFO] 
 	[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ mrunit-example ---
-	[debug] execute contextualize
 	[INFO] Using 'UTF-8' encoding to copy filtered resources.
 	[INFO] skip non existing resourceDirectory /Users/mbrooks/github-repos/mrunit-example/src/test/resources
 	[INFO] 
