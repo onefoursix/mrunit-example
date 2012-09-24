@@ -2,6 +2,7 @@ MRUnit Example
 ==============================
 
 This project shows how to setup a Maven project to build and test a MapReduce jar file using MRUnit.  
+
 Only a couple of simple tests are included here; MRUnit can test many more aspects of MapReduce functionality than is shown in this project.
 
 For full information on MRUnit see http://mrunit.apache.org/
