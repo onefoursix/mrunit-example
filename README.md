@@ -1,15 +1,16 @@
 MRUnit Example
 ==============================
 
-This project shows how to build and test a MapReduce jar file using MRUnit and Maven
+This project shows how to setup a Maven project to build and test a MapReduce jar file using MRUnit.  
+Only a couple of simple tests are included here; MRUnit can test many more aspects of MapReduce functionality than is shown in this project.
 
 For full information on MRUnit see http://mrunit.apache.org/
 
 Other good links are:
 
-* Tutorial:	https://cwiki.apache.org/confluence/display/MRUNIT/MRUnit+Tutorial
+* MRUnit Tutorial:	https://cwiki.apache.org/confluence/display/MRUNIT/MRUnit+Tutorial
 
-* Javadoc:	http://mrunit.apache.org/documentation/javadocs/0.9.0-incubating/overview-summary.html
+* MRUnit Javadoc:	http://mrunit.apache.org/documentation/javadocs/0.9.0-incubating/overview-summary.html
 
 * Getting Started with MRUnit: http://mrunit.apache.org/documentation/javadocs/0.9.0-incubating/org/apache/hadoop/mrunit/package-summary.html
 
@@ -35,21 +36,21 @@ Test maven is installed by running the mvn command from a dir without a pom.xml 
 	[INFO] ------------------------------------------------------------------------
 	...
 	
+If you want to use Maven within Eclipse, install the Eclipse Maven plugin (m2e) with info here: 
+     http://eclipse.org/m2e/
 
 
-Compile the example and run the MRUnit tests
---------------------------------------------
 
-To compile the example and run the MRUnit tests, switch to this project's root dir and execute the command: 
+Compile the example, run the MRUnit tests and generate the MapReduce job's jar file
+------------------------------------------------------------------------------------
 
-	> mvn clean test
+Switch to this project's root dir and execute the command: 
+
+	> mvn clean package
 	
-rere
-
-
 You should see output like this:
 
-	$ mvn clean test
+	$ mvn clean package
 	[INFO] Scanning for projects...
 	[INFO]                                                                         
 	[INFO] ------------------------------------------------------------------------
@@ -57,52 +58,93 @@ You should see output like this:
 	[INFO] ------------------------------------------------------------------------
 	[INFO] 
 	[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ mrunit-example ---
-	[INFO] Deleting /Users/mbrooks/mrunit-example/target
+	[INFO] Deleting /Users/mbrooks/github-repos/mrunit-example/target
 	[INFO] 
 	[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ mrunit-example ---
 	[debug] execute contextualize
 	[INFO] Using 'UTF-8' encoding to copy filtered resources.
-	[INFO] skip non existing resourceDirectory /Users/mbrooks/mrunit-example/src/main/resources
+	[INFO] skip non existing resourceDirectory /Users/mbrooks/github-repos/mrunit-example/src/main/resources
 	[INFO] 
 	[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ mrunit-example ---
-	[INFO] Compiling 3 source files to /Users/mbrooks/mrunit-example/target/classes
+	[INFO] Compiling 3 source files to /Users/mbrooks/github-repos/mrunit-example/target/classes
 	[INFO] 
 	[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ mrunit-example ---
 	[debug] execute contextualize
 	[INFO] Using 'UTF-8' encoding to copy filtered resources.
-	[INFO] skip non existing resourceDirectory /Users/mbrooks/mrunit-example/src/test/resources
+	[INFO] skip non existing resourceDirectory /Users/mbrooks/github-repos/mrunit-example/src/test/resources
 	[INFO] 
 	[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ mrunit-example ---
-	[INFO] Compiling 4 source files to /Users/mbrooks/mrunit-example/target/test-classes
+	[INFO] Compiling 4 source files to /Users/mbrooks/github-repos/mrunit-example/target/test-classes
 	[INFO] 
 	[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ mrunit-example ---
-	[INFO] Surefire report directory: /Users/mbrooks/mrunit-example/target/surefire-reports
+	[INFO] Surefire report directory: /Users/mbrooks/github-repos/mrunit-example/target/surefire-reports
 
 	-------------------------------------------------------
- 	T E S T S
+	 T E S T S
 	-------------------------------------------------------
 	Running com.onefoursix.wordcount.WordCountMapperTest
-	Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.399 sec
+	Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.393 sec
+	Running com.onefoursix.wordcount.WordCountMapReduceTest
+	Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.105 sec
 	Running com.onefoursix.wordcount.WordCountReducerTest
-	Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 sec
-	Running com.onefoursix.wordcount.WordCountTest
-	Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 sec
+	Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 sec
 
 	Results :
 
 	Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
 
+	[INFO] 
+	[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ mrunit-example ---
+	[INFO] Building jar: /Users/mbrooks/github-repos/mrunit-example/mrunit-example-1.0.jar
 	[INFO] ------------------------------------------------------------------------
 	[INFO] BUILD SUCCESS
 	[INFO] ------------------------------------------------------------------------
-	[INFO] Total time: 2.626s
-	[INFO] Finished at: Mon Sep 24 08:41:58 PDT 2012
+	[INFO] Total time: 2.871s
+	[INFO] Finished at: Mon Sep 24 10:41:06 PDT 2012
 	[INFO] Final Memory: 12M/81M
-	[INFO] ------------------------------------------------------------------------
+	[INFO] ---------------
+	
+Note that all seven tests passed, and the MapReduce job's jar file was generated at /Users/mbrooks/github-repos/mrunit-example/mrunit-example-1.0.jar
 
-Note that all seven tests passed and the build succeeded.
+The jar file generated by this example can be run using the command:
 
-The package phase created the jar ./sssss
+	hadoop jar mrunit-example-1.0.jar WordCount <input-data> <output-dir>
 
+
+Viewing Test Failures
+---------------------
+
+
+In each of the three test files in /src/test/java there are tests that will fail if uncommented.  If you uncomment the tests that fail and re-run the build, the TEST section output will look like this:
+
+
+	-------------------------------------------------------
+	 T E S T S
+	-------------------------------------------------------
+	Running com.onefoursix.wordcount.WordCountMapperTest
+	12/09/24 10:20:11 ERROR mrunit.TestDriver: Matched expected output (horse, 1) but at incorrect position 2 (expected position 1)
+	12/09/24 10:20:11 ERROR mrunit.TestDriver: Matched expected output (zebra, 1) but at incorrect position 1 (expected position 2)
+	Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.436 sec <<< FAILURE!
+	Running com.onefoursix.wordcount.WordCountMapReduceTest
+	12/09/24 10:20:12 ERROR mrunit.TestDriver: Missing expected output (hyena, 1) at position 1.
+	12/09/24 10:20:12 ERROR mrunit.TestDriver: Matched expected output (lizard, 2) but at incorrect position 1 (expected position 0)
+	12/09/24 10:20:12 ERROR mrunit.TestDriver: Received unexpected output (goat, 1) at position 0.
+	Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.123 sec <<< FAILURE!
+	Running com.onefoursix.wordcount.WordCountReducerTest
+	12/09/24 10:20:12 ERROR mrunit.TestDriver: Missing expected output (zebra, 2) at position 0.
+	12/09/24 10:20:12 ERROR mrunit.TestDriver: Received unexpected output (horse, 2) at position 0.
+	Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.069 sec <<< FAILURE!
+
+	Results :
+
+	Failed tests:   
+	  testMapperWithZebrasAndHorses(com.onefoursix.wordcount.WordCountMapperTest): 2 Error(s): (Matched expected output (horse, 1) but at incorrect position 2 (expected position 1), Matched expected output (zebra, 1) but at incorrect position 1 (expected position 2))
+	  testMapReduceWithLizardsAndGiats(com.onefoursix.wordcount.WordCountMapReduceTest): 3 Error(s): (Missing expected output (hyena, 1) at position 1., Matched expected output (lizard, 2) but at incorrect position 1 (expected position 0), Received unexpected output (goat, 1) at position 0.)
+	  testReducerWithZebras(com.onefoursix.wordcount.WordCountReducerTest): 2 Error(s): (Missing expected output (zebra, 2) at position 0., Received unexpected output (horse, 2) at position 0.)
+
+	Tests run: 10, Failures: 3, Errors: 0, Skipped: 0
+
+
+And as the tests failed, the MapReduce job's jar file is not created.
 
 
