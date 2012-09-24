@@ -15,8 +15,8 @@ Other good links are:
 * Getting Started with MRUnit: http://mrunit.apache.org/documentation/javadocs/0.9.0-incubating/org/apache/hadoop/mrunit/package-summary.html
 
 
-MRUnit Tests
-------------
+MRUnit Example Tests
+--------------------
 The MRUnit tests in this project are located in /src/test/java. In this project, the class WordCountTestBase is used to setup the drivers used by the other test classes.
 
 
