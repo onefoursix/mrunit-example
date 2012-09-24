@@ -50,7 +50,7 @@ If you want to use Maven within Eclipse, install the Eclipse Maven plugin (m2e) 
 Compile, test and package the MapReduce job's jar file
 ------------------------------------------------------
 
-Switch to this project's root dir and execute the command: 
+Switch to the project's root dir and execute the command: 
 
 	> mvn clean package
 	
