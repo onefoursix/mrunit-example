@@ -36,13 +36,13 @@ Test maven is installed by running the mvn command from a dir without a pom.xml 
 	[INFO] ------------------------------------------------------------------------
 	...
 	
-If you want to use Maven within Eclipse, install the Eclipse Maven plugin (m2e) with info here: 
+If you want to use Maven within Eclipse, install the Eclipse Maven plugin (m2e) from: 
      http://eclipse.org/m2e/
 
 
 
-Compile the example, run the MRUnit tests and generate the MapReduce job's jar file
-------------------------------------------------------------------------------------
+Compile, test and package the MapReduce job's jar file
+------------------------------------------------------
 
 Switch to this project's root dir and execute the command: 
 
