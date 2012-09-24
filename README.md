@@ -151,6 +151,6 @@ In each of the three test files in /src/test/java there are tests that will fail
 	Tests run: 10, Failures: 3, Errors: 0, Skipped: 0
 
 
-And as the tests failed, the MapReduce job's jar file is not created.
+And since the tests failed, the MapReduce job's jar file is not created.
 
 
