@@ -44,6 +44,8 @@ To compile the example and run the MRUnit tests, switch to this project's root d
 
 	> mvn clean test
 	
+rere
+
 
 You should see output like this:
 
