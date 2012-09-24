@@ -43,6 +43,7 @@ Compile the example and run the MRUnit tests
 To compile the example and run the MRUnit tests, switch to this project's root dir and execute the command: 
 
 	> mvn clean test
+	
 
 You should see output like this:
 
