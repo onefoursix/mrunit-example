@@ -145,10 +145,10 @@ And since the MRUnit tests failed, the MapReduce job's jar file was not created.
 ###Running Maven within Eclipse
 
 
-If you want to use Maven within Eclipse, open a workspace, switch to the Java persepctive and choose Import | Maven | Existing Maven Project, and point to the project dir's pom.xml.  You can build the project and create the jar file by right clicking on the pom.xml and choosing Run As... Maven Install.  You will then see your test output on the console. 
-
+If you want to use Maven within Eclipse, open a workspace, switch to the Java persepctive and choose Import | Maven | Existing Maven Project, and point to the project dir's pom.xml.  You can build the project and create the jar file by right clicking on the pom.xml and choosing Run As... Maven Install. 
 ![images/maven-in-eclipse.jpg](images/maven-in-eclipse.jpg)
 
 
+You will  see your test output on the console. You can also right click the test package and choose "Run As... JUnit" to run the tests using the JUnit tooling within Eclipse.  Here we see one of the tests has failed:
 
-You can also right click the test package and choose "Run As 
+![images/junit-in-eclipse.jpg](images/junit-in-eclipse.jpg)
