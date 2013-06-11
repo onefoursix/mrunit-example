@@ -147,5 +147,8 @@ And since the MRUnit tests failed, the MapReduce job's jar file was not created.
 
 If you want to use Maven within Eclipse, open a workspace, switch to the Java persepctive and choose Import | Maven | Existing Maven Project, and point to the project dir's pom.xml.  You can build the project and create the jar file by right clicking on the pom.xml and choosing Run As... Maven Install.  You will then see your test output on the console. 
 
+![images/maven-in-eclipse.jpg](maven-in-eclipse.jpg)
+
+
 
 You can also right click the test package and choose "Run As 
