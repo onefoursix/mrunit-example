@@ -26,7 +26,7 @@ public class WordCountMapperTest extends WordCountTestBase {
 	}
 	
 	/* if uncommented, this test will fail */
-	/*
+	
 	@Test
 	public void testMapperWithZebrasAndHorses() {
 		mapDriver.withInput(new LongWritable(1), new Text("horse zebra horse"));
@@ -35,7 +35,7 @@ public class WordCountMapperTest extends WordCountTestBase {
 		mapDriver.withOutput(new Text("zebra"), new IntWritable(1));
 		mapDriver.runTest();
 	}
-	*/
+	
 
 
 }
