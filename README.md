@@ -41,8 +41,7 @@ Test maven is installed by running the mvn command from a dir without a pom.xml 
 	[INFO] ------------------------------------------------------------------------
 	...
 	
-If you want to use Maven within Eclipse, install the Eclipse Maven plugin (m2e) from: 
-     http://eclipse.org/m2e/
+If you want to use Maven within Eclipse, open a workspace switch to the Java persepctive and choose Import | Maven | Existing Maven Project and point to the project dir's pom.xml.  You can  Maven 
 
 
 
